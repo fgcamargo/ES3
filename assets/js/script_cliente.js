@@ -1,11 +1,3 @@
-
-
-  // Máscara de telefone
-  $(".phone-mask").blur(function() {
-    var phone = $(this).val().replace(/\D/g, '');
-    $(this).val(phone.replace(/(\d{2})(\d{4,5})(\d{4})/, '($1) $2-$3'));
-  });
-
 // Máscara de telefone
 $(".phone-mask").blur(function() {
   var phone = $(this).val().replace(/\D/g, '');
@@ -24,69 +16,66 @@ $(".cpf-mask").blur(function() {
   $(this).val(cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4'));
 });
 
-
-// Função que faz o filtro da pesquina na tabela
-
-$(document).ready(function() {
-  $('#search-input').on('keyup', function() {
-    var searchValue = $(this).val().toLowerCase().trim();
-    $('table tbody tr').each(function() {
-      var cells = $(this).find('td');
-      var found = false;
-      cells.each(function() {
-        var cellText = $(this).text().toLowerCase().trim();
-        if (cellText.indexOf(searchValue) !== -1) {
-          found = true;
-          return false;
-        }
-      });
-      if (found) {
-        $(this).show();
-      } else {
-        $(this).hide();
-      }
-    });
-  });
-});
-
-
-
-// Script que gera a tabela no html
-$(document).ready(function() {
-  // Faz uma requisição AJAX para o servidor para obter a lista de clientes
-  $.ajax({
-    url: "../methods/list_cliente.php",
-    dataType: "json",
-    success: function(data) {
-      // Loop pelos dados e cria uma nova linha para cada registro
-      $.each(data, function(index, cliente) {
-        var newRow = $("<tr>").addClass("row-cliente");
-        newRow.append($("<td>").text(cliente.id_cliente));
-        newRow.append($("<td>").text(cliente.nome));
-        newRow.append($("<td>").text(cliente.cpf));
-        newRow.append($("<td>").text(cliente.ende));
-        newRow.append($("<td>").text(cliente.num));
-        newRow.append($("<td>").text(cliente.cep));
-        newRow.append($("<td>").text(cliente.tel1));
-        newRow.append($("<td>").text(cliente.tel2));
-        newRow.append($("<td>").text(cliente.data_cadastro));
-        newRow.append($("<td>").html("<button class='bt-edit' data-id='" + cliente.id_cliente + "' onclick='editUsuario(" + cliente.id_cliente + ")'><ion-icon name='pencil-outline'></ion-icon></button>" + "<button class='bt-excl' data-id='" + cliente.id_cliente + "' onclick='excluirUsuario(" + cliente.id_cliente + ")'><ion-icon name='trash-outline'></ion-icon></button>"));
-        $("#lista-clientes").append(newRow);
-      });
-    }
-  });
-});
-
-
-async function excluirUsuario(id_cliente){
-  console.log("Acessou a função: " + id_cliente);
-
-  const dados = await fetch('../methods/excl_cliente.php?id='+ id_cliente);
-
-  location.href = '../pages/clientes.php'; // redireciona o navegador para a página cliente.php
-
-  // Aguarda um pequeno atraso e atualiza a página
-  setTimeout(function() {
-    location.reload();
-  }, 1);
+// Função para aplicar a máscara de telefone e de CPF
+function fMasc(objeto, mascara) {
+  obj = objeto;
+  masc = mascara;
+  setTimeout("fMascEx()", 1);
 }
+
+function fMascEx() {
+  obj.value = masc(obj.value);
+}
+
+function mTel(tel) {
+  tel = tel.replace(/\D/g, '');
+  tel = tel.replace(/^(\d{2})/, '($1) ');
+  tel = tel.replace(/(\d{4})$/, '-$1');
+  return tel;
+}
+
+// Máscara de CPF
+function mCPF(cpf) {
+  cpf = cpf.replace(/\D/g, '');
+  cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+  cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+  cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  return cpf;
+}
+
+// Máscara de CEP
+function mCEP(cep) {
+  cep = cep.replace(/\D/g, '');
+  cep = cep.replace(/^(\d{5})(\d)/, '$1-$2');
+  return cep;
+}
+
+// Aplicando as máscaras nos campos
+$(document).ready(function() {
+  $(".phone-mask").mask("(00) 0000-0000#");
+  $(".cep-mask").mask("00000-000#");
+  $(".cpf-mask").mask("000.000.000-00#");
+});
+
+
+function filtrarTabela() {
+  var input, filtro, tabela, linhas, celulas, i, j, valorCelula;
+  input = document.querySelector('.form-control');
+  filtro = input.value.toUpperCase();
+  tabela = document.querySelector('table');
+  linhas = tabela.getElementsByTagName('tr');
+
+  for (i = 0; i < linhas.length; i++) {
+    celulas = linhas[i].getElementsByTagName('td');
+    for (j = 0; j < celulas.length; j++) {
+      valorCelula = celulas[j].textContent || celulas[j].innerText;
+      if (valorCelula.toUpperCase().indexOf(filtro) > -1) {
+        linhas[i].style.display = '';
+        break;
+      } else {
+        linhas[i].style.display = 'none';
+      }
+    }
+  }
+}
+

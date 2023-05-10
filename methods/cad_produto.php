@@ -1,55 +1,45 @@
+
 <?php
 require_once '../methods/session.php';
 require_once '../methods/conn.php';
 
 validaSessao();
 
-// Verifica se o formulário foi enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Obtém os dados do formulário
-  $nome = $_POST['nome'];
-  $preco = $_POST['preco'];
-  $quantidade = $_POST['quantidade'];
+$nome = mysqli_real_escape_string($conn, $_POST['nome']);
+$preco = mysqli_real_escape_string($conn, $_POST['preco']);
+$tipo = mysqli_real_escape_string($conn, $_POST['tipo']);
+$estoque = mysqli_real_escape_string($conn, $_POST['estoque']);
+$descricao = mysqli_real_escape_string($conn, $_POST['descricao']);
 
-  // Verifica se o preço e a quantidade são números
-  if (!is_numeric($preco) || !is_numeric($quantidade)) {
-    // Inicia a sessão
-    session_start();
-    // Define uma variável de sessão com a mensagem de erro
-    $_SESSION['error'] = array('tipo' => 'cadastrar', 'mensagem' => 'Preço e quantidade devem ser números.');
-    // Redireciona para a página de cadastro de produtos
-    header('Location: ../pages/cad_produto.php');
-    exit();
-  }
 
-  // Prepara a query de inserção
-  $stmt = $conn->prepare("INSERT INTO produtos (nome, preco, quantidade) VALUES (?, ?, ?)");
+$mensagem = '';
 
-  // Executa a query de inserção com os parâmetros
-  $stmt->bind_param("sss", $nome, $preco, $quantidade);
-  $resultado = $stmt->execute();
 
-  if (!$resultado) {
-    $erro = $conn->error;
-    if (strpos($erro, 'Duplicate entry') !== false) { // Verifica se o erro é de nome duplicado
-      // Inicia a sessão
-      session_start();
-      // Define uma variável de sessão com a mensagem de erro
-      $_SESSION['error'] = array('tipo' => 'cadastrar', 'mensagem' => 'Já existe um registro com o nome informado.');
-    } else {
-      // Inicia a sessão
-      session_start();
-      // Define uma variável de sessão com a mensagem de erro
-      $_SESSION['error'] = array('tipo' => 'cadastrar', 'mensagem' => 'Ocorreu um erro ao inserir o registro: ' . $erro);
-    }
+// insere os dados na tabela
+$sql = "INSERT INTO produto (nome, preco, tipo, descricao, qnt_estoque) VALUES ('$nome','$preco','$tipo','$descricao','$estoque')";
+
+if ($conn->query($sql) === TRUE) {
+  // Cadastro foi bem sucedido
+  $mensagem = "Registro cadastrado com sucesso!";
+
+  if (mysqli_affected_rows($conn) != 0) {
+    echo "
+      <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/engenharia/pages/produtos.php'>
+      <script type=\"text/javascript\">
+        alert(\"Produto cadastrado com sucesso.\");
+      </script>
+    ";
   } else {
-    // Inicia a sessão
-    session_start();
-    // Define uma variável de sessão com a mensagem de sucesso
-    $_SESSION['message'] = array('tipo' => 'cadastrar', 'mensagem' => 'Cadastro realizado com sucesso!');
+    echo "
+      <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/engenharia/pages/produtos.php'>
+      <script type=\"text/javascript\">
+        alert(\"Não foi possível cadastrar o produto.\");
+      </script>
+    ";
   }
-
-  // Redireciona para a página de cadastro de produtos
-  header('Location: ../pages/cad_produto.php');
-  exit();
+} else {
+  // ocorreu um erro ao inserir o registro
+  $mensagem = "Erro ao cadastrar o produto: " . $conn->error;
 }
+
+$conn->close();

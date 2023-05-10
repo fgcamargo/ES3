@@ -23,3 +23,26 @@
     elemento.value = preco;
   }
 
+
+  function filtrarTabela() {
+    var input, filtro, tabela, linhas, celulas, i, j, valorCelula;
+    input = document.querySelector('.form-control');
+    filtro = input.value.toUpperCase();
+    tabela = document.querySelector('table');
+    linhas = tabela.getElementsByTagName('tr');
+  
+    for (i = 0; i < linhas.length; i++) {
+      celulas = linhas[i].getElementsByTagName('td');
+      for (j = 0; j < celulas.length; j++) {
+        valorCelula = celulas[j].textContent || celulas[j].innerText;
+        if (valorCelula.toUpperCase().indexOf(filtro) > -1) {
+          linhas[i].style.display = '';
+          break;
+        } else {
+          linhas[i].style.display = 'none';
+        }
+      }
+    }
+  }
+  
+  

@@ -49,53 +49,54 @@ ob_start();
   </header>
 
   <!-- Barra de Navegação -->
-  <nav class="navbar">
-    <ul class="navbar-nav" collapsed>
-      <li class="nav-item">
-        <a href="../pages/home.php" class="nav-link">
-          <ion-icon name="home-outline"></ion-icon>
-          <span class="nav-link-text">Home</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/pedidos.php" class="nav-link">
-          <ion-icon name="bag-handle-outline"></ion-icon>
-          <span class="nav-link-text">Pedidos</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/clientes.php" class="nav-link">
-          <ion-icon name="person-add-outline"></ion-icon>
-          <span class="nav-link-text">Clientes</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/produtos.php" class="nav-link">
-          <ion-icon name="fast-food-outline"></ion-icon>
-          <span class="nav-link-text">Produtos</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/relatorios.php" class="nav-link">
-          <ion-icon name="document-text-outline"></ion-icon>
-          <span class="nav-link-text">Relatórios</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/configuracao.php" class="nav-link">
-          <ion-icon name="settings-outline"></ion-icon>
-          <span class="nav-link-text">Configurações</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/logout.php" class="nav-link">
-          <ion-icon name="log-out-outline"></ion-icon>
-          <span class="nav-link-text">Sair</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-
+  <div class="custom-navbar">
+    <nav class="navbar">
+      <ul class="navbar-nav" collapsed>
+        <li class="nav-item">
+          <a href="../pages/home.php" class="nav-link">
+            <ion-icon name="home-outline"></ion-icon>
+            <span class="nav-link-text">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/pedidos.php" class="nav-link">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <span class="nav-link-text">Pedidos</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/clientes.php" class="nav-link">
+            <ion-icon name="person-add-outline"></ion-icon>
+            <span class="nav-link-text">Clientes</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/produtos.php" class="nav-link">
+            <ion-icon name="fast-food-outline"></ion-icon>
+            <span class="nav-link-text">Produtos</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/relatorios.php" class="nav-link">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <span class="nav-link-text">Relatórios</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/configuracao.php" class="nav-link">
+            <ion-icon name="settings-outline"></ion-icon>
+            <span class="nav-link-text">Configurações</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/logout.php" class="nav-link">
+            <ion-icon name="log-out-outline"></ion-icon>
+            <span class="nav-link-text">Sair</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
 
 

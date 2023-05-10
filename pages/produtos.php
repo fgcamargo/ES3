@@ -22,6 +22,11 @@ ob_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+
+  <!-- Bootstrap-->
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 
   <!-- Estilos Criado -->
   <link rel="stylesheet" href="../assets/css/style.css">
@@ -29,10 +34,6 @@ ob_start();
   <link rel="stylesheet" href="../assets/css/navbar.css">
   <link rel="stylesheet" href="../assets/css/produto.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
-
-  <!-- Bootstrap-->
-  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-
 
 
   <title>Profit - Produtos</title>
@@ -52,53 +53,57 @@ ob_start();
     </div>
   </header>
 
+
   <!-- Barra de Navegação -->
-  <nav class="navbar">
-    <ul class="navbar-nav" collapsed>
-      <li class="nav-item">
-        <a href="../pages/home.php" class="nav-link">
-          <ion-icon name="home-outline"></ion-icon>
-          <span class="nav-link-text">Home</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/pedidos.php" class="nav-link">
-          <ion-icon name="bag-handle-outline"></ion-icon>
-          <span class="nav-link-text">Pedidos</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/clientes.php" class="nav-link">
-          <ion-icon name="person-add-outline"></ion-icon>
-          <span class="nav-link-text">Clientes</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/produtos.php" class="nav-link">
-          <ion-icon name="fast-food-outline"></ion-icon>
-          <span class="nav-link-text">Produtos</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/relatorios.php" class="nav-link">
-          <ion-icon name="document-text-outline"></ion-icon>
-          <span class="nav-link-text">Relatórios</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/configuracao.php" class="nav-link">
-          <ion-icon name="settings-outline"></ion-icon>
-          <span class="nav-link-text">Configurações</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/logout.php" class="nav-link">
-          <ion-icon name="log-out-outline"></ion-icon>
-          <span class="nav-link-text">Sair</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <div class="custom-navbar">
+    <nav class="navbar">
+      <ul class="navbar-nav" collapsed>
+        <li class="nav-item">
+          <a href="../pages/home.php" class="nav-link">
+            <ion-icon name="home-outline"></ion-icon>
+            <span class="nav-link-text">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/pedidos.php" class="nav-link">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <span class="nav-link-text">Pedidos</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/clientes.php" class="nav-link">
+            <ion-icon name="person-add-outline"></ion-icon>
+            <span class="nav-link-text">Clientes</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/produtos.php" class="nav-link">
+            <ion-icon name="fast-food-outline"></ion-icon>
+            <span class="nav-link-text">Produtos</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/relatorios.php" class="nav-link">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <span class="nav-link-text">Relatórios</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/configuracao.php" class="nav-link">
+            <ion-icon name="settings-outline"></ion-icon>
+            <span class="nav-link-text">Configurações</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/logout.php" class="nav-link">
+            <ion-icon name="log-out-outline"></ion-icon>
+            <span class="nav-link-text">Sair</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
 
 
 
@@ -106,6 +111,75 @@ ob_start();
   <section class="produtos">
     <div class="col-md-12">
       <table class="table table-striped">
+
+        <!-- Botão de cadastro -->
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Barra de pesquisa -->
+            <div class="input-group">
+              <input type="text" oninput="filtrarTabela()" class="form-control" placeholder="Pesquisar...">
+            </div>
+          </div>
+          <div class="col-md-6 text-right">
+            <!-- Botão de cadastro -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalcad">Cadastrar</button>
+          </div>
+        </div>
+
+
+        <!-- Inicio do modal do cadastro -->
+        <div class="modal fade" id="myModalcad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Cadastrar Produto</h4>
+              </div>
+              <div class="modal-body">
+                <form id="edit-modal-form" method="POST" action="http://localhost/engenharia/methods/cad_produto.php" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="nomeProduto">Nome:</label>
+                    <input name="nome" type="text" class="form-control" placeholder="Digite o nome do produto" required>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <label for="precoProduto">Preço:</label>
+                        <div class="input-group">
+                          <div class="input-group-addon">R$</div>
+                          <input name="preco" type="text" class="form-control" placeholder="0,00" onkeyup="formatarPreco(this);" required>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <label for="tipoProduto">Tipo:</label>
+                        <select name="tipo" class="form-control" required>
+                          <option value="salgados">Salgados</option>
+                          <option value="lanches">Lanches</option>
+                          <option value="bebidas">Bebidas</option>
+                          <option value="sobremesas">Sobremesas</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="quantidadeProduto">Quantidade em Estoque:</label>
+                    <input name="estoque" type="number" class="form-control" placeholder="Digite a quantidade em estoque" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="descricaoProduto">Descrição:</label>
+                    <textarea name="descricao" class="form-control" placeholder="Digite a descrição do produto"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fim do modal -->
+
         <thead>
           <tr>
             <th>ID</th>
@@ -125,7 +199,33 @@ ob_start();
       </table>
   </section>
 
+  <!-- Modal de validação de exclusão -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="deleteModalLabel">Confirmação de Exclusão</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <p>Tem certeza que deseja excluir este produto?</p>
 
+        </div>
+        <div class="modal-footer">
+          <form id="edit-modal-form" method="POST" action="http://localhost/engenharia/methods/excluir_produto.php" enctype="multipart/form-data">
+            <input name="id" type="hidden" class="form-control" id="idProduto">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-danger" id="deleteButton">Excluir</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fim do modal -->
+
+
+  <!-- Modal de edição -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="editmodal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -134,7 +234,7 @@ ob_start();
           <h4 class="modal-title" id="id_produto">Atualização de Produto</h4>
         </div>
         <div class="modal-body">
-          <form id="edit-modal-form" method="POST" action="http://localhost/engenharia/methods/updat_produto.php" enctype="multipart/form-data">
+          <form id="edit-modal-form" method="POST" action="http://localhost/engenharia/methods/update_produto.php" enctype="multipart/form-data">
             <div class="form-group">
               <label for="nomeProduto">Nome:</label>
               <input name="nome" type="text" class="form-control" id="nomeProduto" placeholder="Digite o nome do produto" required>
@@ -177,8 +277,7 @@ ob_start();
       </div>
     </div>
   </div>
-
-
+  <!-- Fim do modal de edição -->
 
 
 
@@ -217,17 +316,22 @@ ob_start();
   </footer>
 
 
-
-
-
   <!-- Script Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
 
   <!--Java script bootstrap -->
   <script type="text/javascript">
+    $('#deleteModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget)
+      var recipientid = button.data('whateverid')
+
+      var modal = $(this)
+
+      modal.find('#idProduto').val(recipientid);
+
+    })
     $('#exampleModal').on('show.bs.modal', function(event) {
       var button = $(event.relatedTarget)
       var recipientid = button.data('whateverid')
@@ -250,11 +354,15 @@ ob_start();
       modal.find('#descricaoProduto').val(recipientdescrip)
     })
   </script>
-  <script type=" module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
 
   <!-- Scripts criado -->
   <script src="../assets/js/script_produto.js"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

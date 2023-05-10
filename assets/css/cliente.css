@@ -18,383 +18,64 @@ section {
   float: right;
   box-sizing: border-box;
   background-color: var(--cor-text-whide);
-}
-
-
-/* Estilo da seção 2 */
-
-/* Estilos para a seção de cadastro */
-#section2 {
-  background-color: #fff;
-  padding: 20px;
-  margin-top: 20px 0;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 0 #ddd, 2px 2px 0 #ccc;
   border-radius: 10px;
-  margin-right: 40px;
-  width: calc(100% - 260px);
-}
 
-/* Alinha os rótulos com os campos */
-.form-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  align-items: center;
-}
 
-.form-group label {
-  font-weight: bold;
-  margin-right: 10px;
-  width: 100px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="tel"],
-.form-group input[type="password"],
-.form-group select {
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-  flex: 1;
-  margin-right: 10px;
-}
-
-/* Alinha os botões de ação */
-.form-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.form-buttons button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  width: 200px;
-}
-
-.form-buttons button:hover {
-  background-color: #0062cc;
-}
-
-/* Estiliza o título */
-.section-titulo {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
 }
 
 
-
-
-
-
-/* Estilo Seção 1 */
-#section3 {
-  background-color: #fff;
-  padding: 20px;
-  margin-top: 20px 0;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  margin-right: 40px;
-  width: calc(100% - 260px);
-}
-
-/* Alinha os rótulos com os campos */
-.form-group3 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  align-items: center;
-}
-
-.form-group3 label {
-  font-weight: bold;
-  margin-right: 10px;
-  width: 100px;
-}
-
-.form-group3 input[type="text"],
-.form-group3 input[type="tel"],
-.form-group3 input[type="password"],
-.form-group3 select {
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-  flex: 1;
-  margin-right: 10px;
-}
-
-/* Alinha os botões de ação */
-.form-buttons3 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.form-buttons3 button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  width: 200px;
-
-}
-
-.form-buttons3 {
-  display: flex;
-  justify-content: center;
-  /* centraliza os botões horizontalmente */
-  gap: 200px;
-  /* define um espaço de 20 pixels entre os botões */
-}
-
-.form-buttons3 button:hover {
-  background-color: #0062cc;
-}
-
-/* Estiliza o título */
-.section-titulo3 {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-
-
-/* Estilo Seção 1 */
-
-#section1 {
-  background-color: #fff;
-  padding: 20px;
-  margin-top: 20px 0;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  margin-right: 40px;
-  width: calc(100% - 260px);
-}
-
-
-.table-clientes {
+table {
   border-collapse: collapse;
   width: 100%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 25px;
 }
 
-.table-clientes thead {
-  background-color: #afadad;
+thead {
+  background-color: #6772e5;
+  color: #fff;
+  text-shadow: 1px 1px 1px #444;
 }
 
-.table-clientes th,
-.table-clientes td {
-  padding: 12px;
+th,
+td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #ccc;
+}
+
+th {
+  border-bottom: 2px solid #6772e5;
+  font-weight: bold;
   text-align: left;
 }
 
-.table-clientes th {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-.table-clientes td {
-  font-size: 14px;
-  border-bottom: 1px solid #e1e1e1;
-}
-
-.table-clientes td:last-child {
-  text-align: center;
-}
-
-.table-clientes .th-acoes {
-  width: 100px;
-}
-
-.th-id {
-  width: 30px;
-}
-
-.th-nome,
-.th-cpf {
-  width: 120px;
-}
-
-.th-endereco {
-  width: 150px;
-}
-
-.th-numero {
-  width: 50px;
-}
-
-.th-cep {
-  width: 90px;
-}
-
-.th-telefone1,
-.th-telefone2 {
-  width: 90px;
-}
-
-.th-data {
-  width: 100px;
-}
-
-
-.th-acoes {
-  width: 100px;
-}
-
-
-.table-clientes .th-acoes button {
-  background-color: #f5f5f5;
-  border: none;
-  color: #666;
-  padding: 6px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.table-clientes .th-acoes button:hover {
-  background-color: #333;
-  color: #fff;
-}
-
-
-.bt-edit {
-  display: inline-block;
-  padding: 5px;
-  border: 1px solid rgb(0, 80, 253);
-  border-radius: 5px;
-  background-color: rgb(0, 80, 253);
-  margin: 15px;
-  color: #fff;
-  font-size: 1em;
-
-}
-
-.bt-excl {
-  display: inline-block;
-  padding: 5px;
-  border: 1px solid rgb(243, 38, 38);
-  border-radius: 5px;
-  background-color: rgb(243, 38, 38);
-  color: #fff;
-  font-size: 1em;
-}
-
-
-
-/* CSS da barra de navegação */
-.search-box {
-  position: relative;
-  display: inline-block;
-  border-radius: 20px;
+tr:nth-child(even) {
   background-color: #f2f2f2;
-  overflow: hidden;
-  margin: 10px;
-  width: 500px;
 }
 
-#search-input {
-  border: none;
-  outline: none;
-  background: transparent;
-  padding: 10px;
-  width: 200px;
-  transition: width 0.4s ease-in-out;
-}
-
-#search-input:focus {
-  width: 300px;
-}
-
-.search-icon {
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-  cursor: pointer;
-  transition: color 0.4s ease-in-out;
-  opacity: 0;
-  pointer-events: none;
-  font-size: 40px;
-}
-
-.search-box:hover .search-icon {
-  color: #333;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* CSS das mensagens de erro */
-
-.message-container-excluir {
-
-  color: #D8000C;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.message-container-excluir .success-message {
-
-  color: #4F8A10;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px;
+/* Barra de pesquisa e Botão de cadastro */
+.input-group {
+  border: 1px solid #ccc;
   border-radius: 5px;
+  margin-right: 10px;
 }
 
-.message-container-excluir .error-message {
 
-  color: #ff0000;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px;
+
+.form-control {
+
+  box-shadow: none;
+}
+
+.btn-primary {
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-left: 10px;
 }
 
-.message-container-cadastrar {
-
-  color: #D8000C;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.message-container-cadastrar .success-message {
-
-  color: #4F8A10;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px;
-  border-radius: 5px;
-
-}
-
-.message-container-cadastrar .error-message {
-  color: #ff0000;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px;
-  border-radius: 5px;
+.row {
+  margin: 25px 0px;
 }

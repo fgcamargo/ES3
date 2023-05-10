@@ -10,14 +10,31 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 
 if ($resultado->num_rows == 0) {
-  echo json_encode(array('error' => 'Nenhum cliente encontrado'));
+  echo "<tr><td colspan='5'>Nenhum Cliente encontrado</td></tr>";
 } else {
-  $clientes = array();
-  while ($dados = $resultado->fetch_assoc()) {
-    $clientes[] = $dados;
+  while ($row = $resultado->fetch_assoc()) {
+    echo "<tr>";
+    echo "<td>" . $row['id_cliente'] . "</td>";
+    echo "<td>" . $row['nome'] . "</td>";
+    echo "<td>" . $row['cpf'] . "</td>";
+    echo "<td>" . $row['ende'] . "</td>";
+    echo "<td>" . $row['num'] . "</td>";
+    echo "<td>" . $row['cep'] . "</td>";
+    echo "<td>" . $row['tel1'] . "</td>";
+    echo "<td>" . $row['tel2'] . "</td>";
+    echo "<td>" . $row['data_cadastro'] . "</td>";
+    echo "<td> <button class='btn btn-warning' data-toggle='modal' data-target='#exampleModal' data-whateverid='" . $row['id_cliente'] . "' data-whatevernome='" . $row['nome'] . "' data-whatevercpf='" . $row['cpf'] . "' data-whateverende='" . $row['ende'] . "' data-whatevernum='" . $row['num'] . "' data-whatevercep='" . $row['cep'] . "' data-whatevertel1='" . $row['tel1'] . "'data-whatevertel2='" . $row['tel2'] . "'data-whatevercadastro='" . $row['data_cadastro'] . "'>Editar</button>  <button class='btn btn-danger' data-toggle='modal' data-target='#deleteModal' data-whateverid='" . $row['id_cliente'] . "'>Excluir</button></td>";
+    echo "</tr>";
   }
-  echo json_encode($clientes);
+
+  mysqli_data_seek($resultado, 0);
+
+  $produtos = array();
+  while ($dados = $resultado->fetch_assoc()) {
+    $produtos[] = $dados;
+  }
 }
+
 
 $stmt->close();
 $conn->close();
