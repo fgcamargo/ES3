@@ -11,19 +11,6 @@ $resultado = $stmt->get_result();
 
 
 
-echo "<table>";
-echo "<thead>";
-echo "<tr>";
-echo "<th>ID</th>";
-echo "<th>Nome</th>";
-echo "<th>Descrição</th>";
-echo "<th>Preço</th>";
-echo "<th>Ações</th>";
-echo "</tr>";
-echo "</thead>";
-echo "<tbody>";
-
-// Loop para percorrer os resultados e exibir na tabela
 if ($resultado->num_rows == 0) {
   echo "<tr><td colspan='5'>Nenhum Produto encontrado</td></tr>";
 } else {
@@ -31,9 +18,11 @@ if ($resultado->num_rows == 0) {
     echo "<tr>";
     echo "<td>" . $row['id_produto'] . "</td>";
     echo "<td>" . $row['nome'] . "</td>";
-    echo "<td>" . $row['descricao'] . "</td>";
     echo "<td>" . $row['preco'] . "</td>";
-    echo "<td> <button class='View' data-id='" . $row['id_produto'] . "'>View</button> | <button class='editar' data-id='" . $row['id_produto'] . "'>Editar</button> | <button class='Excluir' data-id='" . $row['id_produto'] . "'>Excluir</button></td>";
+    echo "<td>" . $row['tipo'] . "</td>";
+    echo "<td>" . $row['descricao'] . "</td>";
+    echo "<td>" . $row['qnt_estoque'] . "</td>";
+    echo "<td> <button class='btn btn-primary' data-toggle='modal' data-target='#exampleModal' data-whateverid='" . $row['id_produto'] . "' data-whatevernome='" . $row['nome'] . "' data-whateverpreco='" . $row['preco'] . "' data-whatevertipo='" . $row['tipo'] . "' data-whateverdescrip='" . $row['descricao'] . "' data-whateverqntesq='" . $row['qnt_estoque'] . "'>Editar</button>  <button class='Excluir' data-id='" . $row['id_produto'] . "'>Excluir</button></td>";
     echo "</tr>";
   }
 
@@ -45,8 +34,6 @@ if ($resultado->num_rows == 0) {
   }
 }
 
-echo "</tbody>";
-echo "</table>";
 
 $stmt->close();
 $conn->close();

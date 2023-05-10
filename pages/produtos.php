@@ -104,39 +104,75 @@ ob_start();
 
   <!-- Sessão que exibe a lista de produtos -->
   <section class="produtos">
-    <table>
-      <thead>
-
-      </thead>
-      <tbody>
-        <?php
-        include '../methods/list_produto.php';
-        ?>
-      </tbody>
-    </table>
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Tipo</th>
+            <th>Descrição</th>
+            <th>Estoque</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          include '../methods/list_produto.php';
+          ?>
+        </tbody>
+      </table>
   </section>
 
-  <div class="container theme-showcase" role="main">
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Launch demo modal
-    </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="editmodal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="id_produto">Atualização de Produto</h4>
+        </div>
+        <div class="modal-body">
+          <form id="edit-modal-form" method="POST" action="http://localhost/engenharia/methods/updat_produto.php" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="nomeProduto">Nome:</label>
+              <input name="nome" type="text" class="form-control" id="nomeProduto" placeholder="Digite o nome do produto" required>
+              <input name="id" type="hidden" class="form-control" id="idProduto">
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-6">
+                  <label for="precoProduto">Preço:</label>
+                  <div class="input-group">
+                    <div class="input-group-addon">R$</div>
+                    <input name="preco" type="text" class="form-control" id="precoProduto" placeholder="0,00" onkeyup="formatarPreco(this);" required>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="tipoProduto">Tipo:</label>
+                  <select name="tipo" class="form-control" id="tipoProduto" required>
+                    <option value="salgados">Salgados</option>
+                    <option value="lanches">Lanches</option>
+                    <option value="bebidas">Bebidas</option>
+                    <option value="sobremesas">Sobremesas</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="quantidadeProduto">Quantidade em Estoque:</label>
+              <input name="estoque" type="number" class="form-control" id="quantidadeProduto" placeholder="Digite a quantidade em estoque" required>
+            </div>
+            <div class="form-group">
+              <label for="descricaoProduto">Descrição:</label>
+              <textarea name="descricao" class="form-control" id="descricaoProduto" placeholder="Digite a descrição do produto"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -181,8 +217,7 @@ ob_start();
   </footer>
 
 
-  <!-- Scripts criado -->
-  <script src="../assets/js/script_produto.js"></script>
+
 
 
   <!-- Script Bootstrap -->
@@ -190,8 +225,36 @@ ob_start();
 
   <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
+
+  <!--Java script bootstrap -->
+  <script type="text/javascript">
+    $('#exampleModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget)
+      var recipientid = button.data('whateverid')
+      var recipientnome = button.data('whatevernome')
+      var recipientpreco = button.data('whateverpreco')
+      var recipienttipo = button.data('whatevertipo')
+      var recipientqntesq = button.data('whateverqntesq')
+      var recipientdescrip = button.data('whateverdescrip')
+
+
+      var modal = $(this)
+
+      modal.find('#idProduto').val(recipientid);
+      modal.find('#id_produto').text('Atualização do Produto: ' + recipientid);
+      modal.find('#idProduto').val(recipientid)
+      modal.find('#nomeProduto').val(recipientnome)
+      modal.find('#precoProduto').val(recipientpreco)
+      modal.find('#tipoProduto').val(recipienttipo)
+      modal.find('#quantidadeProduto').val(recipientqntesq)
+      modal.find('#descricaoProduto').val(recipientdescrip)
+    })
+  </script>
   <script type=" module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- Scripts criado -->
+  <script src="../assets/js/script_produto.js"></script>
 </body>
 
 </html>

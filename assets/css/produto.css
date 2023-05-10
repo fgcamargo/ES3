@@ -22,101 +22,65 @@ section {
 }
 
 
-/* Estilo da Tabela */
-
-.produtos {
-  margin: 20px;
-  padding: 20px;
-  background-color: var(--cor-text-whide);
-  border: 1px solid #ddd;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  width: 85%;
-}
-
-
+/* Estilo da tabela */
 table {
   width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  background-color: #fff;
   border-collapse: collapse;
-  table-layout: fixed;
-  border-radius: 15px;
-
 }
 
-thead {
-  background-color: var(--cor-menu-primary);
-  color: var(--cor-text-whide);
-
-
+table th,
+table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
 }
 
-th,
-td {
-  padding: 10px;
-  text-align: center;
+table th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
 }
 
-th {
-  font-weight: bold;
-}
+/* Estilo dos botões */
 
-tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.btn {
-  padding: 10px 20px;
-  border-radius: 5px;
+button.editar,
+button.Excluir {
   border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  border-radius: 0.25rem;
   color: #fff;
   font-weight: bold;
+  transition: all 0.3s;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  max-width: 150px;
+  margin-right: 10px;
+  width: 80px;
 }
 
-.btn-primary {
-  background-color: #3f51b5;
+button.editar {
+  background-color: #0a8cf7;
+
 }
 
-.btn-primary:hover {
-  background-color: #2c3e50;
+button.Excluir {
+  background-color: #dc3545;
+
 }
 
-.btn-danger {
-  background-color: #e74c3c;
+button.View:hover,
+button.editar:hover,
+button.Excluir:hover {
+  opacity: 0.8;
 }
 
-.btn-danger:hover {
-  background-color: #c0392b;
+/* Estilo da página em geral */
+body {
+  background-color: var(--cor-backgraound);
 }
 
-.btn-success {
-  background-color: #2ecc71;
-}
-
-.btn-success:hover {
-  background-color: #27ae60;
-}
-
-.modal-delete {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-delete .btn-group {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.hidden {
-  display: none;
+.table-responsive {
+  max-width: 100%;
 }
