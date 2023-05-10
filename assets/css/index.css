@@ -1,0 +1,94 @@
+/* Reset CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Define as cores utilizadas na tela */
+:root {
+  --primary-color: #16023b;
+  --secondary-color: #00BCD4;
+  --text-color: #333;
+  --cor-white: #f1f1f1
+}
+
+/* Define o estilo global para o corpo do documento */
+body {
+  background: linear-gradient(to bottom right, #16023b, #470581);
+  font-family: Arial, sans-serif;
+  align-self: start;
+}
+
+/* Define o estilo do container da tela de login */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Define o estilo da caixa de login */
+.login-box {
+  width: 400px;
+  background-color: var(--cor-white);
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+/* Define o estilo do título da tela de login */
+.login-box h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Define o estilo dos campos de entrada */
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* Define o estilo do botão de entrada */
+.login-box button[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--cor-white);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* Define o estilo dos links para redefinir a senha ou criar uma conta */
+.login-box a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.login-box a:hover {
+  text-decoration: underline;
+}
+
+
+/* Estilo da mensagem de erro */
+
+.error-message {
+  color: #ff0000;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}

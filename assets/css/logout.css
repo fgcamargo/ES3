@@ -1,0 +1,71 @@
+/* Reset CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Define as cores utilizadas na tela */
+:root {
+  --primary-color: #16023b;
+  --secondary-color: #00BCD4;
+  --text-color: #333;
+  --cor-white: #f1f1f1
+}
+
+/* Define o estilo global para o corpo do documento */
+body {
+  background: linear-gradient(to bottom right, #16023b, #470581);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+/* Define o estilo do container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Define o estilo da caixa */
+.box {
+  width: 500px;
+  background-color: var(--cor-white);
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  text-align: center;
+}
+
+/* Define o estilo do título */
+.box h2 {
+  color: var(-primary-color);
+  margin-bottom: 20px;
+}
+
+/* Define o estilo do texto */
+.box p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Define o estilo do botão */
+.box button[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--cor-white);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Define o estilo do botão ao passar o mouse */
+.box button[type="submit"]:hover {
+  background-color: #075672;
+}

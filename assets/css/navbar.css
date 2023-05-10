@@ -1,0 +1,136 @@
+:root {
+  --cor-menu-primary: #6772e5;
+  --cor-backgraound: #f2f2f2;
+  --cor-text-whide: #fff;
+  --cor-text-black: #000;
+}
+
+nav {
+  background-color: var(--cor-backgraound);
+
+  /* Define a altra do Navbar */
+  height: 900px;
+
+  width: 200px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 15px;
+  margin-bottom: 0px;
+  float: left;
+  box-sizing: border-box;
+
+
+}
+
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--cor-text-white);
+  text-decoration: none;
+  background-color: var(--cor-backgraound);
+  transition: all 0.2s ease-out;
+  bottom: 0;
+}
+
+.nav-link:hover {
+  color: var(--cor-backgraound);
+  background-color: var(--cor-menu-primary);
+}
+
+.nav-link ion-icon {
+  margin-right: 10px;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.nav-link .nav-link-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-link.active {
+  color: var(--cor-backgraound);
+  background-color: var(--cor-menu-primary);
+}
+
+
+
+/* Define a regra de estilo para tornar o Navbar responsivo */
+@media (max-width: 768px) {
+  nav {
+    /* Aumenta um pouco a largura do Navbar */
+    width: 60px;
+
+    /* Remove as margens laterais */
+    margin-right: 0px;
+    margin-left: 0px;
+
+    /* Define a altura automática */
+    height: 900px;
+
+    /* Remove o float */
+    float: none;
+  }
+
+  .navbar-nav {
+    /* Alinha os itens na vertical */
+    flex-direction: column;
+    justify-content: flex-start;
+
+    /* Remove o padding */
+    padding: 0;
+  }
+
+  .nav-item {
+    /* Define a largura automática */
+    width: auto;
+  }
+
+  .nav-link {
+    /* Remove o padding vertical */
+    padding-top: 0;
+    padding-bottom: 0;
+
+    /* Remove o texto e define a largura e altura iguais para manter o ícone centralizado */
+    width: 60px;
+    height: 60px;
+    font-size: 0;
+    /* oculta o texto */
+
+    /* Centraliza horizontalmente o ícone */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-link ion-icon {
+    /* Define o tamanho do ícone */
+    font-size: 20px;
+  }
+
+  .nav-link.active {
+    /* Mantém a mesma interação de mudança de cor */
+    background-color: var(--cor-menu-primary);
+    color: var(--cor-backgraound);
+
+  }
+
+  /* Adiciona uma margem inferior para separar os ícones */
+  .nav-link:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}

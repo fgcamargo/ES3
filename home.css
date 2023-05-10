@@ -1,0 +1,326 @@
+/* Estilos do cabeçalho */
+
+header {
+  height: 120px;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-container {
+  position: fixed;
+  top: 120px;
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 120px);
+  background-color: #6772e5;
+  overflow-x: hidden;
+  transition: 0.3s;
+  color: #FFF;
+  z-index: 2;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.logo {
+  display: block;
+  margin-right: 20px;
+}
+
+.logo img {
+  height: 80px;
+  width: auto;
+}
+
+.header-text {
+  text-align: center;
+  margin-right: 20px;
+}
+
+.header-text h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.header-text h2 {
+  font-size: 16px;
+  color: #252525;
+}
+
+.navbar {
+  padding-top: 20px;
+}
+
+.navbar-nav {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-item {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  color: #FFF;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #FFF;
+  color: #6772e5;
+}
+
+.nav-link ion-icon {
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.nav-link.active {
+  background-color: #FFF;
+  color: #6772e5;
+}
+
+.nav-link.active ion-icon {
+  filter: invert(0.5);
+}
+
+.main-container {
+  padding-left: 220px;
+}
+
+@media (max-width: 992px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .logo img {
+    height: 60px;
+    margin-right: 0;
+  }
+
+  .header-text {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .header-text h1 {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
+  .header-text h2 {
+    font-size: 14px;
+  }
+}
+
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 5px;
+  }
+
+  .logo img {
+    height: 50px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .header-text h1 {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+
+  .header-text h2 {
+    font-size: 12px;
+  }
+}
+
+
+/* CSS DO FOOTER */
+
+footer {
+  background-color: #F5F5F5;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-column {
+  width: 30%;
+}
+
+.footer-column h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: #6772e5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Adicionando espaçamento ao final do elemento anterior */
+.main-container {
+  margin-bottom: 40px;
+}
+
+
+/* Responsividade para tela menor que 992px */
+@media (max-width: 992px) {
+  footer {
+    position: relative;
+    margin-top: 40px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-column {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Responsividade para tela menor que 768px */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+/* CSS da Barra de Navegação */
+
+
+.navbar {
+  position: fixed;
+  top: 120px;
+  /* altura do header */
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 120px);
+  /* altura total da página */
+  background-color: #6772e5;
+  overflow-x: hidden;
+  transition: 0.3s;
+  color: #FFF;
+  z-index: 2;
+}
+
+@media (min-width: 992px) {
+  .main-content {
+    margin-left: 200px;
+  }
+}
+
+.navbar-nav {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-item {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  color: #FFF;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #FFF;
+  color: #6772e5;
+}
+
+.nav-link ion-icon {
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.nav-link.active {
+  background-color: #FFF;
+  color: #6772e5;
+}
+
+.nav-link.active ion-icon {
+  filter: invert(0.5);
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,41 @@
+/* Reset CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --cor-menu-primary: #6772e5;
+  --cor-backgraound: #f2f2f2;
+  --cor-text-whide: #fff;
+  --cor-text-black: #000;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+body {
+  margin: auto;
+  height: auto;
+  /* Largura do Header */
+  width: 100%;
+  overflow: auto;
+  overflow-x: auto;
+  background-color: var(--cor-backgraound);
+  /* previne scrollbars horizontais */
+}
+
+.meu-body {
+  margin: auto;
+  height: auto;
+  /* Largura do Header */
+  width: 100%;
+  overflow: auto;
+  overflow-x: auto;
+  background-color: var(--cor-backgraound);
+  /* previne scrollbars horizontais */
+
+}
