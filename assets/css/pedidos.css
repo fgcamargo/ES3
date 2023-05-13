@@ -1,0 +1,25 @@
+:root {
+  --cor-menu-primary: #6772e5;
+  --cor-backgraound: #f2f2f2;
+  --cor-text-whide: #fff;
+  --cor-text-black: #000;
+}
+
+section {
+
+  margin-left: 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 0px;
+  height: 100%;
+  /* desconta a margem superior e inferior */
+  width: calc(100% - 215px);
+  /* desconta a largura do navbar e das margens */
+  float: right;
+  box-sizing: border-box;
+  background-color: var(--cor-text-whide);
+  box-shadow: 1px 1px 0 #ddd, 2px 2px 0 #ccc;
+  border-radius: 10px;
+
+
+}

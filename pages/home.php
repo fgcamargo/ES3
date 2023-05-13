@@ -22,12 +22,16 @@ ob_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Bootstrap-->
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+
+
 
   <!-- Estilos Criado -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/navbar.css">
-  <link rel="stylesheet" href="../assets/css/section.css">
+  <link rel="stylesheet" href="../assets/css/home.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
 
 
@@ -143,6 +147,13 @@ ob_start();
       </div>
     </div>
   </footer>
+
+  <!-- Script Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Script para Formata tela de Cadastro -->
+  <script src="../assets/js/script_home.js"></script>
 
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

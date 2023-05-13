@@ -22,12 +22,15 @@ ob_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Bootstrap-->
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+
 
   <!-- Estilos Criado -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/navbar.css">
-  <link rel="stylesheet" href="../assets/css/section.css">
+  <link rel="stylesheet" href="../assets/css/config.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
 
 
@@ -49,52 +52,55 @@ ob_start();
   </header>
 
   <!-- Barra de Navegação -->
-  <nav class="navbar">
-    <ul class="navbar-nav" collapsed>
-      <li class="nav-item">
-        <a href="../pages/home.php" class="nav-link">
-          <ion-icon name="home-outline"></ion-icon>
-          <span class="nav-link-text">Home</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/pedidos.php" class="nav-link">
-          <ion-icon name="bag-handle-outline"></ion-icon>
-          <span class="nav-link-text">Pedidos</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/clientes.php" class="nav-link">
-          <ion-icon name="person-add-outline"></ion-icon>
-          <span class="nav-link-text">Clientes</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/produtos.php" class="nav-link">
-          <ion-icon name="fast-food-outline"></ion-icon>
-          <span class="nav-link-text">Produtos</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/relatorios.php" class="nav-link">
-          <ion-icon name="document-text-outline"></ion-icon>
-          <span class="nav-link-text">Relatórios</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/configuracao.php" class="nav-link">
-          <ion-icon name="settings-outline"></ion-icon>
-          <span class="nav-link-text">Configurações</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="../pages/logout.php" class="nav-link">
-          <ion-icon name="log-out-outline"></ion-icon>
-          <span class="nav-link-text">Sair</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <!-- Barra de Navegação -->
+  <div class="custom-navbar">
+    <nav class="navbar">
+      <ul class="navbar-nav" collapsed>
+        <li class="nav-item">
+          <a href="../pages/home.php" class="nav-link">
+            <ion-icon name="home-outline"></ion-icon>
+            <span class="nav-link-text">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/pedidos.php" class="nav-link">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <span class="nav-link-text">Pedidos</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/clientes.php" class="nav-link">
+            <ion-icon name="person-add-outline"></ion-icon>
+            <span class="nav-link-text">Clientes</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/produtos.php" class="nav-link">
+            <ion-icon name="fast-food-outline"></ion-icon>
+            <span class="nav-link-text">Produtos</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/relatorios.php" class="nav-link">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <span class="nav-link-text">Relatórios</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/configuracao.php" class="nav-link">
+            <ion-icon name="settings-outline"></ion-icon>
+            <span class="nav-link-text">Configurações</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../pages/logout.php" class="nav-link">
+            <ion-icon name="log-out-outline"></ion-icon>
+            <span class="nav-link-text">Sair</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
   <section>
     <h1>teste</h1>
@@ -120,6 +126,15 @@ ob_start();
       </div>
     </div>
   </footer>
+
+  <!-- Script Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+
+
+  <!-- Script para Formata tela de Cadastro -->
+
+  <script src="../assets/js/script_configuracao.js"></script>
 
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
