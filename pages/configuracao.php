@@ -63,6 +63,12 @@ ob_start();
           </a>
         </li>
         <li class="nav-item">
+          <a href="../pages/caixa.php" class="nav-link">
+            <ion-icon name="cart-outline"></ion-icon>
+            <span class="nav-link-text">Caixa</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="../pages/pedidos.php" class="nav-link">
             <ion-icon name="bag-handle-outline"></ion-icon>
             <span class="nav-link-text">Pedidos</span>
