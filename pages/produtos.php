@@ -117,7 +117,7 @@ ob_start();
   <section class="produtos">
     <div class="col-md-12">
       <table class="table table-striped">
-
+        <h1>Painel de Produtos</h1>
         <!-- Botão de cadastro -->
         <div class="row">
           <div class="col-md-6">

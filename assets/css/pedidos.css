@@ -20,6 +20,115 @@ section {
   background-color: var(--cor-text-whide);
   box-shadow: 1px 1px 0 #ddd, 2px 2px 0 #ccc;
   border-radius: 10px;
+}
+
+/* Estilos para um h1 personalizado */
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+  margin: 20px 0;
+}
+
+th,
+td {
+  text-align: center;
+}
 
 
+
+/* Classe CSS para tabela Aceito */
+
+
+.table-aceito th {
+  background-color: #0066cc;
+  /* Fundo azul */
+  color: #fff;
+  /* Fonte branca */
+  border: 5px solid #0066cc;
+  /* Borda azul */
+}
+
+.table-aceito tr:hover {
+  background-color: #d2e2f2;
+  /* Efeito de hover com cor azul suave */
+}
+
+
+
+.table-preparo th {
+  background-color: #ff9900;
+  /* Fundo laranja */
+  color: #fff;
+  /* Fonte branca */
+  border: 5px solid #ff9900;
+  /* Borda laranja */
+}
+
+.table-preparo tr:hover {
+  background-color: #ffe8cc;
+  /* Efeito de hover com cor laranja suave */
+}
+
+
+
+.table-retirada th {
+  background-color: #ffff99;
+  /* Fundo amarelo */
+  border: 5px solid #ffff99;
+  /* Borda amarela */
+}
+
+.table-retirada tr:hover {
+  background-color: #ffffcc;
+  /* Efeito de hover com cor amarela suave */
+}
+
+
+
+.table-entrega th {
+  background-color: #993399;
+  /* Fundo roxo */
+  color: #fff;
+  /* Fonte branca */
+  border: 5px solid #993399;
+  /* Borda roxa */
+}
+
+.table-entrega tr:hover {
+  background-color: #d9b3e6;
+  /* Efeito de hover com cor roxa suave */
+}
+
+
+
+.table-finalizado th {
+  background-color: #339933;
+  /* Fundo verde */
+  color: #fff;
+  /* Fonte branca */
+  border: 5px solid #339933;
+  /* Borda verde */
+}
+
+.table-finalizado tr:hover {
+  background-color: #cce5cc;
+  /* Efeito de hover com cor verde suave */
+}
+
+
+
+.table-cancelado th {
+  background-color: #cc0000;
+  /* Fundo vermelho */
+  color: #fff;
+  /* Fonte branca */
+  border: 5px solid #cc0000;
+  /* Borda vermelha */
+}
+
+.table-cancelado tr:hover {
+  background-color: #f2cccc;
+  /* Efeito de hover com cor vermelha suave */
 }

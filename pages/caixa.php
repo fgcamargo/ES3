@@ -1,17 +1,9 @@
 <?php
 // Inclui o arquivo que mantém a sessão
-
-
 require_once('../methods/session.php');
-
 validaSessao();
-
-
-
 // Limpa o buffer de redirecionamento
 ob_start();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +23,6 @@ ob_start();
   <link rel="stylesheet" href="../assets/css/navbar.css">
   <link rel="stylesheet" href="../assets/css/caixa.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
-
 
   <title>Profit - Pedidos</title>
 
@@ -107,7 +98,71 @@ ob_start();
   </div>
 
   <section>
-    <h1>teste</h1>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <h2 class="mb-4">Detalhes do Pedido</h2>
+          <table class="table table-striped">
+            <thead class="thead-light">
+              <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Preço Unitário</th>
+                <th>Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cachorro Quente</td>
+                <td><input type="number" class="form-control" value="1" min="1"></td>
+                <td>R$ 7,00</td>
+                <td>R$ 7,00</td>
+                <td><button class="btn btn-danger">Remover</button></td>
+              </tr>
+              <tr>
+                <td>Batata Frita</td>
+                <td><input type="number" class="form-control" value="2" min="1"></td>
+                <td>R$ 8,00</td>
+                <td>R$ 16,00</td>
+                <td><button class="btn btn-danger">Remover</button></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" class="text-right">Total</td>
+                <td>R$ 23,00</td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+          <button class="btn btn-primary float-right">Finalizar Pedido</button>
+        </div>
+        <div class="col-md-6">
+          <h2 class="mb-4">Resumo do Pedido</h2>
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>Subtotal</td>
+                <td>R$ 23,00</td>
+              </tr>
+              <tr>
+                <td>Desconto</td>
+                <td>R$ 0,00</td>
+              </tr>
+              <tr>
+                <td>Frete</td>
+                <td>R$ 5,00</td>
+              </tr>
+              <tr class="bg-secondary text-white">
+                <td>Total</td>
+                <td>R$ 28,00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>

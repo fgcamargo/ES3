@@ -106,7 +106,7 @@ ob_start();
     <div class="col-md-12">
 
       <table class="table table-striped">
-
+        <h1>Painel de Clientes</h1>
         <!-- Botão de cadastro -->
         <div class="row">
           <div class="col-md-6">

@@ -106,8 +106,140 @@ ob_start();
     </nav>
   </div>
 
-  <section>
-    <h1>teste</h1>
+  <section class="cliente">
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-striped table-aceito">
+          <h1>Pedidos Aceito</h1>
+          <thead>
+            <tr>
+              <th>Numero do Pedido</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Total</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            require_once '../methods/list_pedidos.php';
+            listarPedidos('Aceito');
+            ?>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped table-preparo">
+          <h1>Pedidos em Preparo</h1>
+          <thead>
+            <tr>
+              <th>Numero do Pedido</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Total</th>
+              <th>Tipo de Entrega</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            require_once '../methods/list_pedidos.php';
+            listarPedidos('Em preparo');
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="cliente">
+    <div class="row">
+      <div class="col-md-4">
+        <table class="table table-striped table-retirada">
+          <h1>Aguardado Retirada</h1>
+          <thead>
+            <tr>
+              <th>Numero do Pedido</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Total</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            require_once '../methods/list_pedidos.php';
+            listarPedidos('Retirada');
+            ?>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-4">
+        <table class="table table-striped table-entrega">
+          <h1>Saiu para Entrega</h1>
+          <thead>
+            <tr>
+              <th>Numero do Pedido</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Total</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            require_once '../methods/list_pedidos.php';
+            listarPedidos('Saiu para entrega');
+            ?>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-4">
+        <table class="table table-striped table-finalizado">
+          <h1>Finalizados</h1>
+          <thead>
+            <tr>
+              <th>Numero do Pedido</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Total</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            require_once '../methods/list_pedidos.php';
+            listarPedidos('Finalizado');
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="cliente">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped table-cancelado">
+          <h1>Pedidos Cancelados</h1>
+          <thead>
+            <tr>
+              <th>Numero do Pedido</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Total</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            require_once '../methods/list_pedidos.php';
+            listarPedidos('Cancelado');
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </section>
 
   <footer>

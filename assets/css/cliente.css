@@ -20,8 +20,6 @@ section {
   background-color: var(--cor-text-whide);
   box-shadow: 1px 1px 0 #ddd, 2px 2px 0 #ccc;
   border-radius: 10px;
-
-
 }
 
 
@@ -78,4 +76,13 @@ tr:nth-child(even) {
 
 .row {
   margin: 25px 0px;
+}
+
+/* Estilos para um h1 personalizado */
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+  margin: 20px 0;
 }

@@ -80,3 +80,12 @@ tr:nth-child(even) {
 .row {
   margin: 25px 0px;
 }
+
+/* Estilos para um h1 personalizado */
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+  margin: 20px 0;
+}
