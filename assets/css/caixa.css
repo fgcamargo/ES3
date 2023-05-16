@@ -23,48 +23,42 @@ section {
   border-radius: 10px;
 }
 
-section h2 {
-  margin-bottom: 30px;
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-table th,
-table td {
+h2 {
   text-align: center;
 }
 
-table th {
-  font-weight: bold;
+.btn-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-table td input {
-  max-width: 80px;
+.table {
+  margin-bottom: 20px;
 }
 
-table td:last-child {
-  white-space: nowrap;
+.form-group {
+  margin-bottom: 20px;
 }
 
-table td:last-child button {
-  margin-left: 10px;
+.total-section {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.table-responsive {
-  overflow-x: auto;
-}
-
-@media (max-width: 767.98px) {
-  .table-responsive {
-    overflow-x: auto;
-  }
-}
-
-@media (max-width: 575.98px) {
-  table td:last-child {
-    display: block;
-  }
-
-  table td:last-child button {
-    margin-top: 10px;
-    margin-left: 0;
-  }
+.button-section {
+  display: flex;
+  justify-content: center;
 }

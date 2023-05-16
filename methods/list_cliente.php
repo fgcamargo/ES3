@@ -23,7 +23,7 @@ if ($resultado->num_rows == 0) {
     echo "<td>" . $row['tel1'] . "</td>";
     echo "<td>" . $row['tel2'] . "</td>";
     echo "<td>" . $row['data_cadastro'] . "</td>";
-    echo "<td> <button class='btn btn-warning' data-toggle='modal' data-target='#exampleModal' data-whateverid='" . $row['id_cliente'] . "' data-whatevernome='" . $row['nome'] . "' data-whatevercpf='" . $row['cpf'] . "' data-whateverende='" . $row['ende'] . "' data-whatevernum='" . $row['num'] . "' data-whatevercep='" . $row['cep'] . "' data-whatevertel1='" . $row['tel1'] . "'data-whatevertel2='" . $row['tel2'] . "'data-whatevercadastro='" . $row['data_cadastro'] . "'>Editar</button>  <button class='btn btn-danger' data-toggle='modal' data-target='#deleteModal' data-whateverid='" . $row['id_cliente'] . "'>Excluir</button></td>";
+    echo "<td> <button class='btn btn-warning' data-toggle='modal' data-target='#exampleModal' data-whateverid='" . $row['id_cliente'] . "' data-whatevernome='" . $row['nome'] . "' data-whatevercpf='" . $row['cpf'] . "' data-whateverende='" . $row['ende'] . "' data-whatevernum='" . $row['num'] . "' data-whatevercep='" . $row['cep'] . "' data-whatevertel1='" . $row['tel1'] . "'data-whatevertel2='" . $row['tel2'] . "'data-whatevercadastro='" . $row['data_cadastro'] . "'><ion-icon name='pencil'></ion-icon></button>  <button class='btn btn-danger' data-toggle='modal' data-target='#deleteModal' data-whateverid='" . $row['id_cliente'] . "'><ion-icon name='trash'></ion-icon></button></td>";
     echo "</tr>";
   }
 

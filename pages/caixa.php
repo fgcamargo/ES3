@@ -97,76 +97,155 @@ ob_start();
     </nav>
   </div>
 
+
   <section>
-    <div class="container">
-      <div class="row mt-5">
-        <div class="col-md-6">
-          <h2 class="mb-4">Detalhes do Pedido</h2>
-          <table class="table table-striped">
-            <thead class="thead-light">
-              <tr>
-                <th>Produto</th>
-                <th>Quantidade</th>
-                <th>Preço Unitário</th>
-                <th>Subtotal</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Cachorro Quente</td>
-                <td><input type="number" class="form-control" value="1" min="1"></td>
-                <td>R$ 7,00</td>
-                <td>R$ 7,00</td>
-                <td><button class="btn btn-danger">Remover</button></td>
-              </tr>
-              <tr>
-                <td>Batata Frita</td>
-                <td><input type="number" class="form-control" value="2" min="1"></td>
-                <td>R$ 8,00</td>
-                <td>R$ 16,00</td>
-                <td><button class="btn btn-danger">Remover</button></td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="3" class="text-right">Total</td>
-                <td>R$ 23,00</td>
-                <td></td>
-              </tr>
-            </tfoot>
-          </table>
-          <button class="btn btn-primary float-right">Finalizar Pedido</button>
+    <h1>Caixa</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Realização de Pedidos</h2>
+        <form action="../methods/busca_cliente.php" method="GET">
+          <div class="form-group">
+            <label for="busca">Buscar Cliente:</label>
+            <input type="text" class="form-control" id="busca" name="busca" placeholder="Digite o CPF ou nome do cliente">
+          </div>
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" value="clientes">Clientes</button>
+          <button type="button" class="btn btn-primary" value="salgados">Salgados</button>
+          <button type="button" class="btn btn-primary" value="lanches">Lanches</button>
+          <button type="button" class="btn btn-primary" value="bebidas">Bebidas</button>
+          <button type="button" class="btn btn-primary" value="sobremesas">Sobremesas</button>
         </div>
-        <div class="col-md-6">
-          <h2 class="mb-4">Resumo do Pedido</h2>
-          <table class="table table-striped">
-            <tbody>
-              <tr>
-                <td>Subtotal</td>
-                <td>R$ 23,00</td>
-              </tr>
-              <tr>
-                <td>Desconto</td>
-                <td>R$ 0,00</td>
-              </tr>
-              <tr>
-                <td>Frete</td>
-                <td>R$ 5,00</td>
-              </tr>
-              <tr class="bg-secondary text-white">
-                <td>Total</td>
-                <td>R$ 28,00</td>
-              </tr>
-            </tbody>
-          </table>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Quantidade</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            include '../methods/teste.php';
+            $tipo = isset($_GET['tipo']) ? $_GET['tipo'] : '';
+            exibirProdutos($tipo);
+            ?>
+
+          </tbody>
+        </table>
+
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="forma-pagamento">Forma de Pagamento</label>
+              <select class="form-control" id="forma-pagamento">
+                <option>Selecione uma forma de Pagamento</option>
+                <option>Pix</option>
+                <option>Dinheiro</option>
+                <option>Cartão de Crédito</option>
+                <option>Cartão de Débito</option>
+                <option>Vale-Refeição</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="tipo-entrega">Tipo de Entrega</label>
+                  <select class="form-control" id="tipo-entrega">
+                    <option value="retirada">Retirada</option>
+                    <option value="entrega">Entrega</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="taxa-entrega">Taxa de Entrega</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="taxa-entrega" value="R$ 10.00" disabled>
+                    <div class="input-group-append">
+                      <span class="input-group-text"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h2>Comanda</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Quantidade</th>
+              <th>Valor</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            include '../methods/list_itens_pedidos.php';
+            ?>
+          </tbody>
+        </table>
+        <div class="total-section">
+          <h3>Total: <span id="valor-total">R$ 0.00</span></h3>
+        </div>
+        <div class="button-section">
+          <button class="btn btn-secondary">Cancelar</button>
+          <button class="btn btn-success">Finalizar Pedido</button>
         </div>
       </div>
     </div>
   </section>
 
+
+  <!-- Código HTML do modal -->
+  <div id="resultadoModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Resultados da Busca</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Endereço</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              // Código PHP para exibir os resultados
+              include '../methods/busca_cliente.php';
+              exibirClientes($termo);
+              ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
   <footer>
-    <div class="footer-container">
+    <div class=" footer-container">
       <div class="footer-column">
         <h3>Contato</h3>
         <ul>
@@ -190,6 +269,47 @@ ob_start();
   <!-- Script Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- JavaScript do Bootstrap -->
+  <script type="text/javascript">
+    $('#deleteModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget);
+      var recipientId = button.data('whateverid');
+
+      var modal = $(this);
+
+      modal.find('#idCliente').val(recipientId);
+    });
+
+    $('#exampleModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget);
+      var recipientId = button.data('whateverid');
+      var recipientNome = button.data('whatevernome');
+      var recipientCpf = button.data('whatevercpf');
+      var recipientEndereco = button.data('whateverende');
+      var recipientNumero = button.data('whatevernum');
+      var recipientCep = button.data('whatevercep');
+      var recipientTel1 = button.data('whatevertel1');
+      var recipientTel2 = button.data('whatevertel2');
+      var recipientCadastro = button.data('whatevercadastro');
+
+      var modal = $(this);
+
+      modal.find('#idCliente').val(recipientId);
+      modal.find('#id_Cliente').text('Atualização do Cliente: ' + recipientId);
+      modal.find('#idCliente').val(recipientId);
+      modal.find('#nomeCliente').val(recipientNome);
+      modal.find('#cpfCliente').val(recipientCpf);
+      modal.find('#endeCliente').val(recipientEndereco);
+      modal.find('#numCliente').val(recipientNumero);
+      modal.find('#cepCliente').val(recipientCep);
+      modal.find('#tel1Cliente').val(recipientTel1);
+      modal.find('#tel2Cliente').val(recipientTel2);
+      modal.find('#cadastroCliente').val(recipientCadastro);
+    });
+  </script>
+
+
 
   <!-- Script para Formata tela de Cadastro -->
 

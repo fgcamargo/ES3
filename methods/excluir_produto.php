@@ -14,7 +14,7 @@ if (isset($_POST['id'])) {
     die("Falha na conexão com o banco de dados: " . $conn->connect_error);
   }
 
-  $sql = "DELETE FROM produto WHERE id_produto = $id";
+  $sql = "DELETE FROM produtos WHERE id_produto = $id";
 
   if ($conn->query($sql) === TRUE) {
     // exclusão foi bem sucedida

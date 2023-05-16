@@ -78,11 +78,13 @@ tr:nth-child(even) {
   margin: 25px 0px;
 }
 
-/* Estilos para um h1 personalizado */
 h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  font-size: 3rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #333;
   text-align: center;
-  margin: 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }

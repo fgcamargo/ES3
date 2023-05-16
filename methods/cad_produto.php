@@ -16,7 +16,7 @@ $mensagem = '';
 
 
 // insere os dados na tabela
-$sql = "INSERT INTO produto (nome, preco, tipo, descricao, qnt_estoque) VALUES ('$nome','$preco','$tipo','$descricao','$estoque')";
+$sql = "INSERT INTO produtos (nome, preco, tipo, descricao, qnt_estoque) VALUES ('$nome','$preco','$tipo','$descricao','$estoque')";
 
 if ($conn->query($sql) === TRUE) {
   // Cadastro foi bem sucedido

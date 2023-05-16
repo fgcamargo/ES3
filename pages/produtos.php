@@ -1,17 +1,9 @@
 <?php
 // Inclui o arquivo que mantém a sessão
-
-
 require_once('../methods/session.php');
-
 validaSessao();
-
-
-
 // Limpa o buffer de redirecionamento
 ob_start();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +16,6 @@ ob_start();
 
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
-
   <!-- Bootstrap-->
   <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 
@@ -34,7 +25,6 @@ ob_start();
   <link rel="stylesheet" href="../assets/css/navbar.css">
   <link rel="stylesheet" href="../assets/css/produto.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
-
 
   <title>Profit - Produtos</title>
 
@@ -52,7 +42,6 @@ ob_start();
       </div>
     </div>
   </header>
-
 
   <!-- Barra de Navegação -->
   <div class="custom-navbar">
@@ -110,9 +99,6 @@ ob_start();
     </nav>
   </div>
 
-
-
-
   <!-- Sessão que exibe a lista de produtos -->
   <section class="produtos">
     <div class="col-md-12">
@@ -131,8 +117,6 @@ ob_start();
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalcad">Cadastrar</button>
           </div>
         </div>
-
-
         <!-- Inicio do modal do cadastro -->
         <div class="modal fade" id="myModalcad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
@@ -185,7 +169,6 @@ ob_start();
           </div>
         </div>
         <!-- Fim do modal -->
-
         <thead>
           <tr>
             <th>ID</th>
@@ -199,7 +182,7 @@ ob_start();
         </thead>
         <tbody>
           <?php
-          include '../methods/list_produto.php';
+          include '../methods/list_produtos.php';
           ?>
         </tbody>
       </table>
@@ -215,7 +198,6 @@ ob_start();
         </div>
         <div class="modal-body">
           <p>Tem certeza que deseja excluir este produto?</p>
-
         </div>
         <div class="modal-footer">
           <form id="edit-modal-form" method="POST" action="http://localhost/engenharia/methods/excluir_produto.php" enctype="multipart/form-data">
@@ -223,7 +205,6 @@ ob_start();
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-danger" id="deleteButton">Excluir</button>
           </form>
-
         </div>
       </div>
     </div>
@@ -285,20 +266,6 @@ ob_start();
   </div>
   <!-- Fim do modal de edição -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <!-- Estrutura Rodapé -->
   <footer>
     <div class="footer-container">
@@ -321,11 +288,9 @@ ob_start();
     </div>
   </footer>
 
-
   <!-- Script Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-
 
   <!--Java script bootstrap -->
   <script type="text/javascript">
@@ -347,7 +312,6 @@ ob_start();
       var recipientqntesq = button.data('whateverqntesq')
       var recipientdescrip = button.data('whateverdescrip')
 
-
       var modal = $(this)
 
       modal.find('#idProduto').val(recipientid);
@@ -360,9 +324,6 @@ ob_start();
       modal.find('#descricaoProduto').val(recipientdescrip)
     })
   </script>
-
-
-
 
   <!-- Scripts criado -->
   <script src="../assets/js/script_produto.js"></script>

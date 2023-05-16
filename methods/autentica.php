@@ -31,7 +31,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         // Inicia a sessão
         session_start();
         // Define uma variável de sessão com a mensagem de erro
-        $_SESSION['error'] = 'Senha incorreta!';
+        $_SESSION['error'] = 'Usuário ou senha incorreta!';
         header('Location: ../pages/index.php');
         exit();
       }
@@ -39,7 +39,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
       // Inicia a sessão
       session_start();
       // Define uma variável de sessão com a mensagem de erro
-      $_SESSION['error'] = 'Usuário não encontrado!';
+      $_SESSION['error'] = 'Usuário ou senha incorreta!';
       header('Location: ../pages/index.php');
       exit();
     }

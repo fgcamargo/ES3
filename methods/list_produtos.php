@@ -5,7 +5,7 @@ require_once '../methods/conn.php';
 
 validaSessao();
 
-$stmt = $conn->prepare("SELECT id_produto, nome, preco, tipo, descricao, qnt_estoque FROM produto");
+$stmt = $conn->prepare("SELECT id_produto, nome, preco, tipo, descricao, qnt_estoque FROM produtos");
 $stmt->execute();
 $resultado = $stmt->get_result();
 
@@ -22,7 +22,7 @@ if ($resultado->num_rows == 0) {
     echo "<td>" . $row['tipo'] . "</td>";
     echo "<td>" . $row['descricao'] . "</td>";
     echo "<td>" . $row['qnt_estoque'] . "</td>";
-    echo "<td> <button class='btn btn-warning' data-toggle='modal' data-target='#exampleModal' data-whateverid='" . $row['id_produto'] . "' data-whatevernome='" . $row['nome'] . "' data-whateverpreco='" . $row['preco'] . "' data-whatevertipo='" . $row['tipo'] . "' data-whateverdescrip='" . $row['descricao'] . "' data-whateverqntesq='" . $row['qnt_estoque'] . "'>Editar</button>  <button class='btn btn-danger' data-toggle='modal' data-target='#deleteModal' data-whateverid='" . $row['id_produto'] . "'>Excluir</button></td>";
+    echo "<td> <button class='btn btn-warning' data-toggle='modal' data-target='#exampleModal' data-whateverid='" . $row['id_produto'] . "' data-whatevernome='" . $row['nome'] . "' data-whateverpreco='" . $row['preco'] . "' data-whatevertipo='" . $row['tipo'] . "' data-whateverdescrip='" . $row['descricao'] . "' data-whateverqntesq='" . $row['qnt_estoque'] . "'><ion-icon name='pencil'></ion-icon></button>  <button class='btn btn-danger' data-toggle='modal' data-target='#deleteModal' data-whateverid='" . $row['id_produto'] . "'><ion-icon name='trash'></ion-icon></button></td>";
     echo "</tr>";
   }
 

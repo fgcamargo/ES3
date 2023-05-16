@@ -1,17 +1,9 @@
 <?php
 // Inclui o arquivo que mantém a sessão
-
-
 require_once('../methods/session.php');
-
 validaSessao();
-
-
-
 // Limpa o buffer de redirecionamento
 ob_start();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +13,8 @@ ob_start();
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
   <!-- Bootstrap-->
   <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
@@ -32,14 +26,13 @@ ob_start();
   <link rel="stylesheet" href="../assets/css/pedidos.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
 
-
-  <title>Profit - Pedidos</title>
+  <title>Profit - Produtos</title>
 
 </head>
 
-<body>
+<body class="meu-body">
 
-  <header>
+  <header class="meu-cabecalho">
     <div class="header-container">
       <a href="#" class="logo">
         <img src="../assets/img/blue.png" alt="Logo da Lanchonete Profit">
@@ -106,135 +99,112 @@ ob_start();
     </nav>
   </div>
 
-  <section class="cliente">
-    <div class="row">
-      <div class="col-md-6">
-        <table class="table table-striped table-aceito">
-          <h1>Pedidos Aceito</h1>
-          <thead>
-            <tr>
-              <th>Numero do Pedido</th>
+  <section class="pedidos">
+    <div class="col-md-12">
+      <h1>Painel de Pedidos</h1>
+      <!-- Botão de cadastro -->
+      <div class="row">
+        <div class="col-md-4">
+          <table class="table table-striped table-recebido">
+            <h2>Pedidos Recebidos</h2>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Valor Total</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              require_once '../methods/list_pedidos.php';
+              listarPedidos('Recebido')
+              ?>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <table class="table table-striped table-preparo">
+            <h2>Pedidos em Preparo</h2>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Valor Total</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              require_once '../methods/list_pedidos.php';
+              listarPedidos('Preparo')
+              ?>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <table class="table table-striped table-pronto">
+            <h2>Pedidos Prontos</h2>
+            <thead>
+              <th>ID</th>
               <th>Nome</th>
               <th>CPF</th>
-              <th>Total</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            require_once '../methods/list_pedidos.php';
-            listarPedidos('Aceito');
-            ?>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-md-6">
-        <table class="table table-striped table-preparo">
-          <h1>Pedidos em Preparo</h1>
-          <thead>
-            <tr>
-              <th>Numero do Pedido</th>
-              <th>Nome</th>
-              <th>CPF</th>
-              <th>Total</th>
+              <th>Valor Total</th>
               <th>Tipo de Entrega</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            require_once '../methods/list_pedidos.php';
-            listarPedidos('Em preparo');
-            ?>
-          </tbody>
-        </table>
+              <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              require_once '../methods/list_pedidos.php';
+              listarPedidos('Pronto')
+              ?>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
   </section>
 
-  <section class="cliente">
+  <section class="pedidos">
     <div class="row">
-      <div class="col-md-4">
-        <table class="table table-striped table-retirada">
-          <h1>Aguardado Retirada</h1>
-          <thead>
-            <tr>
-              <th>Numero do Pedido</th>
-              <th>Nome</th>
-              <th>CPF</th>
-              <th>Total</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            require_once '../methods/list_pedidos.php';
-            listarPedidos('Retirada');
-            ?>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-md-4">
-        <table class="table table-striped table-entrega">
-          <h1>Saiu para Entrega</h1>
-          <thead>
-            <tr>
-              <th>Numero do Pedido</th>
-              <th>Nome</th>
-              <th>CPF</th>
-              <th>Total</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            require_once '../methods/list_pedidos.php';
-            listarPedidos('Saiu para entrega');
-            ?>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <table class="table table-striped table-finalizado">
-          <h1>Finalizados</h1>
+          <h2>Pedidos Finalizados</h2>
           <thead>
             <tr>
-              <th>Numero do Pedido</th>
+              <th>ID</th>
               <th>Nome</th>
               <th>CPF</th>
-              <th>Total</th>
-              <th>Ação</th>
+              <th>Valor Total</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
             <?php
             require_once '../methods/list_pedidos.php';
-            listarPedidos('Finalizado');
+            listarPedidos('Finalizado')
             ?>
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
-
-  <section class="cliente">
-    <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <table class="table table-striped table-cancelado">
-          <h1>Pedidos Cancelados</h1>
+          <h2>Pedidos Cancelados</h2>
           <thead>
             <tr>
-              <th>Numero do Pedido</th>
+              <th>ID</th>
               <th>Nome</th>
               <th>CPF</th>
-              <th>Total</th>
-              <th>Ação</th>
+              <th>Valor Total</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
             <?php
             require_once '../methods/list_pedidos.php';
-            listarPedidos('Cancelado');
+            listarPedidos('Cancelado')
             ?>
           </tbody>
         </table>
@@ -242,6 +212,109 @@ ob_start();
     </div>
   </section>
 
+
+  <!-- Modal de Pedidos -->
+  <div class="modal fade" id="pedidosModal" tabindex="-1" aria-labelledby="pedidosModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="pedidosModalLabel">Detalhes do Pedido</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="pedidoNumero">Número do Pedido:</label>
+              <input type="text" class="form-control" id="idPedido" readonly>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="clienteNome">Nome:</label>
+                <input type="text" class="form-control" id="nomeCliente" readonly>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="clienteCPF">CPF:</label>
+                <input type="text" class="form-control" id="cpfCliente" readonly>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="clienteEndereco">Endereço:</label>
+                <input type="text" class="form-control" id="endeCliente" readonly>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="clienteNum">CEP:</label>
+                <input type="text" class="form-control" id="cepCliente" readonly>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="clienteNum">Num:</label>
+                <input type="text" class="form-control" id="numCliente" readonly>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="valorTotal">Valor Total:</label>
+                <input type="text" class="form-control" id="totalPedido" readonly>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="formaPagamento">Pagamento:</label>
+                <input type="text" class="form-control" id="pagamentoPedido" readonly>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="observacoes">Observações:</label>
+              <textarea class="form-control" id="observacoes" readonly></textarea>
+            </div>
+            <div class="form-row">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Modal de Alteração de Status -->
+  <div class="modal fade" id="alteraStatusModal" tabindex="-1" aria-labelledby="alteraStatusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alteraStatusModalLabel">Alterar Status do Pedido</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body">
+            <p id="alteraStatusMensagem">Deseja alterar o pedido <span id="pedidoID"></span> para o status <span id="novoStatus"></span>?</p>
+          </div>
+          <form id="alteraStatusForm" action="../methods/update_status_pedido.php" method="POST">
+            <div class="form-group">
+              <input type="hidden" name="pedidoId" id="pedidoId">
+              <input type="hidden" name="novostatus" id="novostatus">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Sim</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- Estrutura Rodapé -->
   <footer>
     <div class="footer-container">
       <div class="footer-column">
@@ -263,16 +336,56 @@ ob_start();
     </div>
   </footer>
 
-
   <!-- Script Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
-  <!-- Script para Formata tela de Cadastro -->
+  <!-- JavaScript do Bootstrap -->
+  <script type="text/javascript">
+    $('#alteraStatusModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget);
+      var recipientId = button.data('whateverid');
+      var recipientstatus = button.data('whateverstatus');
 
-  <script src="../assets/js/script_pedidos.js"></script>
+      var modal = $(this);
 
-  <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+      modal.find('#pedidoID').text(recipientId);
+      modal.find('#novoStatus').text(recipientstatus);
+      modal.find('#pedidoId').val(recipientId);
+      modal.find('#novostatus').val(recipientstatus);
+    });
+
+    $('#pedidosModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget);
+      var recipientid = button.data('whateverid');
+      var recipientnome = button.data('whatevernome');
+      var recipientcpf = button.data('whatevercpf');
+      var recipientende = button.data('whateverende');
+      var recipientcep = button.data('whatevercep');
+      var recipientnum = button.data('whatevernum');
+      var recipienttotal = button.data('whatevertotal');
+      var recipientpagamento = button.data('whatevercpagamento');
+      var recipientobs = button.data('whatevercobs');
+
+      var modal = $(this);
+
+      modal.find('#idPedido').val(recipientid);
+      modal.find('#nomeCliente').val(recipientnome);
+      modal.find('#cpfCliente').val(recipientcpf);
+      modal.find('#endeCliente').val(recipientende);
+      modal.find('#cepCliente').val(recipientcep);
+      modal.find('#numCliente').val(recipientnum);
+      modal.find('#totalPedido').val(recipienttotal);
+      modal.find('#pagamentoPedido').val(recipientpagamento);
+      modal.find('#observacoes').val(recipientobs);
+    });
+  </script>
+
+
+
+  <!-- Scripts criado -->
+  <script src="../assets/js/script_produto.js"></script>
+
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

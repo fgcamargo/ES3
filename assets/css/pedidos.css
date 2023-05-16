@@ -22,14 +22,28 @@ section {
   border-radius: 10px;
 }
 
-/* Estilos para um h1 personalizado */
 h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  font-size: 3rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #333;
   text-align: center;
-  margin: 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
 
 th,
 td {
@@ -41,7 +55,7 @@ td {
 /* Classe CSS para tabela Aceito */
 
 
-.table-aceito th {
+.table-recebido th {
   background-color: #0066cc;
   /* Fundo azul */
   color: #fff;
@@ -50,7 +64,7 @@ td {
   /* Borda azul */
 }
 
-.table-aceito tr:hover {
+.table-recebido tr:hover {
   background-color: #d2e2f2;
   /* Efeito de hover com cor azul suave */
 }
@@ -73,37 +87,8 @@ td {
 
 
 
-.table-retirada th {
-  background-color: #ffff99;
-  /* Fundo amarelo */
-  border: 5px solid #ffff99;
-  /* Borda amarela */
-}
 
-.table-retirada tr:hover {
-  background-color: #ffffcc;
-  /* Efeito de hover com cor amarela suave */
-}
-
-
-
-.table-entrega th {
-  background-color: #993399;
-  /* Fundo roxo */
-  color: #fff;
-  /* Fonte branca */
-  border: 5px solid #993399;
-  /* Borda roxa */
-}
-
-.table-entrega tr:hover {
-  background-color: #d9b3e6;
-  /* Efeito de hover com cor roxa suave */
-}
-
-
-
-.table-finalizado th {
+.table-pronto th {
   background-color: #339933;
   /* Fundo verde */
   color: #fff;
@@ -112,11 +97,24 @@ td {
   /* Borda verde */
 }
 
-.table-finalizado tr:hover {
+.table-pronto tr:hover {
   background-color: #cce5cc;
   /* Efeito de hover com cor verde suave */
 }
 
+.table-finalizado th {
+  background-color: #333;
+  /* Fundo preto */
+  color: #fff;
+  /* Fonte branca */
+  border: 5px solid #333;
+  /* Borda preta */
+}
+
+.table-finalizado tr:hover {
+  background-color: #666;
+  /* Efeito de hover com cor cinza mais escura */
+}
 
 
 .table-cancelado th {

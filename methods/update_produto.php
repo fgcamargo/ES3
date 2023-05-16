@@ -18,7 +18,7 @@ $mensagem = '';
 
 if (!empty($id)) {
   // atualiza os dados na tabela
-  $sql = "UPDATE produto SET nome = '$nome', preco = '$preco', tipo = '$tipo', descricao = '$descricao', qnt_estoque = '$estoque' WHERE id_produto = '$id'";
+  $sql = "UPDATE produtos SET nome = '$nome', preco = '$preco', tipo = '$tipo', descricao = '$descricao', qnt_estoque = '$estoque' WHERE id_produto = '$id'";
 
   if ($conn->query($sql) === TRUE) {
     // a atualização foi bem sucedida
