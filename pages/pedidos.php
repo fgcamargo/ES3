@@ -259,6 +259,7 @@ ob_start();
             </div>
             <div class="form-row">
               <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#itensModal">Exibir Lista</button>
             </div>
           </form>
         </div>
@@ -267,6 +268,41 @@ ob_start();
   </div>
 
 
+  <!-- Modal de Itens -->
+  <div class="modal fade" id="itensModal" tabindex="-1" aria-labelledby="itensModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="itensModalLabel">Itens do Pedido</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Conteúdo da lista de itens -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID Item</th>
+                <th>ID Pedido</th>
+                <th>ID Produto</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              require_once '../methods/list_itens_pedido.php';
+
+              ?>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal de Alteração de Status -->
   <div class="modal fade" id="alteraStatusModal" tabindex="-1" aria-labelledby="alteraStatusModalLabel" aria-hidden="true">
