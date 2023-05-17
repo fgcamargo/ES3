@@ -25,7 +25,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         session_start();
         // Define uma variável de sessão com a mensagem de sucesso
         $_SESSION['message'] = 'Login realizado com sucesso!';
-        header('Location: ../pages/home.php');
+        header('Location: ../pages/caixa.php');
         exit();
       } else {
         // Inicia a sessão

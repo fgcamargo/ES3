@@ -47,12 +47,7 @@ ob_start();
   <div class="custom-navbar">
     <nav class="navbar">
       <ul class="navbar-nav" collapsed>
-        <li class="nav-item">
-          <a href="../pages/home.php" class="nav-link">
-            <ion-icon name="home-outline"></ion-icon>
-            <span class="nav-link-text">Home</span>
-          </a>
-        </li>
+
         <li class="nav-item">
           <a href="../pages/caixa.php" class="nav-link">
             <ion-icon name="cart-outline"></ion-icon>
@@ -76,19 +71,7 @@ ob_start();
             <ion-icon name="fast-food-outline"></ion-icon>
             <span class="nav-link-text">Produtos</span>
           </a>
-        </li>
-        <li class="nav-item">
-          <a href="../pages/relatorios.php" class="nav-link">
-            <ion-icon name="document-text-outline"></ion-icon>
-            <span class="nav-link-text">Relatórios</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="../pages/configuracao.php" class="nav-link">
-            <ion-icon name="settings-outline"></ion-icon>
-            <span class="nav-link-text">Configurações</span>
-          </a>
-        </li>
+
         <li class="nav-item">
           <a href="../pages/logout.php" class="nav-link">
             <ion-icon name="log-out-outline"></ion-icon>
@@ -105,64 +88,70 @@ ob_start();
       <!-- Botão de cadastro -->
       <div class="row">
         <div class="col-md-4">
-          <table class="table table-striped table-recebido">
-            <h2>Pedidos Recebidos</h2>
-            <thead>
-              <tr>
+          <div class="table-responsive">
+            <table class="table table-striped table-recebido">
+              <h2>Pedidos Recebidos</h2>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>CPF</th>
+                  <th>Valor Total</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                require_once '../methods/list_pedidos.php';
+                listarPedidos('Recebido')
+                ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="table-responsive">
+            <table class="table table-striped table-preparo">
+              <h2>Pedidos em Preparo</h2>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>CPF</th>
+                  <th>Valor Total</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                require_once '../methods/list_pedidos.php';
+                listarPedidos('Preparo')
+                ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="table-responsive">
+            <table class="table table-striped table-pronto">
+              <h2>Pedidos Prontos</h2>
+              <thead>
                 <th>ID</th>
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>Valor Total</th>
+                <th>Tipo de Entrega</th>
                 <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              require_once '../methods/list_pedidos.php';
-              listarPedidos('Recebido')
-              ?>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-4">
-          <table class="table table-striped table-preparo">
-            <h2>Pedidos em Preparo</h2>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Valor Total</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              require_once '../methods/list_pedidos.php';
-              listarPedidos('Preparo')
-              ?>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-4">
-          <table class="table table-striped table-pronto">
-            <h2>Pedidos Prontos</h2>
-            <thead>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>CPF</th>
-              <th>Valor Total</th>
-              <th>Tipo de Entrega</th>
-              <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              require_once '../methods/list_pedidos.php';
-              listarPedidos('Pronto')
-              ?>
-            </tbody>
-          </table>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                require_once '../methods/list_pedidos.php';
+                listarPedidos('Pronto')
+                ?>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
   </section>

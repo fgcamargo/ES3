@@ -50,12 +50,7 @@ ob_start();
   <div class="custom-navbar">
     <nav class="navbar">
       <ul class="navbar-nav" collapsed>
-        <li class="nav-item">
-          <a href="../pages/home.php" class="nav-link">
-            <ion-icon name="home-outline"></ion-icon>
-            <span class="nav-link-text">Home</span>
-          </a>
-        </li>
+
         <li class="nav-item">
           <a href="../pages/caixa.php" class="nav-link">
             <ion-icon name="cart-outline"></ion-icon>
@@ -80,18 +75,7 @@ ob_start();
             <span class="nav-link-text">Produtos</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="../pages/relatorios.php" class="nav-link">
-            <ion-icon name="document-text-outline"></ion-icon>
-            <span class="nav-link-text">Relatórios</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="../pages/configuracao.php" class="nav-link">
-            <ion-icon name="settings-outline"></ion-icon>
-            <span class="nav-link-text">Configurações</span>
-          </a>
-        </li>
+
         <li class="nav-item">
           <a href="../methods/logout.php" class="nav-link">
             <ion-icon name="log-out-outline"></ion-icon>

@@ -21,6 +21,8 @@ section {
   background-color: var(--cor-text-whide);
   box-shadow: 1px 1px 0 #ddd, 2px 2px 0 #ccc;
   border-radius: 10px;
+  background-color: #ccc;
+  padding-bottom: 100px;
 }
 
 
@@ -37,28 +39,102 @@ h1 {
 
 h2 {
   text-align: center;
+  margin-top: 20px;
+  color: #343a40;
 }
 
-.btn-group {
-  display: flex;
-  justify-content: center;
+
+.container {
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para as guias (nav-tabs) */
+.nav-tabs {
+  background-color: #f8f9fa;
+  border-bottom: none;
   margin-bottom: 20px;
 }
 
+.nav-tabs .nav-item {
+  margin-bottom: -1px;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  background-color: transparent;
+  color: #343a40;
+  border-radius: 0;
+  font-weight: bold;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #fff;
+  color: #343a40;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+/* Estilos para as tabelas */
 .table {
+  width: 100%;
   margin-bottom: 20px;
 }
 
+.table thead th {
+  background-color: #28435e;
+  color: #fff;
+}
+
+.table tbody td {
+  vertical-align: middle;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Estilos para os botões */
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+/* Estilos para a tabela responsiva */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Estilos para o formulário */
 .form-group {
   margin-bottom: 20px;
 }
 
-.total-section {
-  text-align: center;
-  margin-bottom: 20px;
+.quantidade-input {
+  width: 60px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Ajuste o valor conforme necessário */
 }
 
-.button-section {
-  display: flex;
-  justify-content: center;
+.tab-divider {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }

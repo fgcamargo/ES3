@@ -45,12 +45,7 @@ ob_start();
   <div class="custom-navbar">
     <nav class="navbar">
       <ul class="navbar-nav" collapsed>
-        <li class="nav-item">
-          <a href="../pages/home.php" class="nav-link">
-            <ion-icon name="home-outline"></ion-icon>
-            <span class="nav-link-text">Home</span>
-          </a>
-        </li>
+
         <li class="nav-item">
           <a href="../pages/caixa.php" class="nav-link">
             <ion-icon name="cart-outline"></ion-icon>
@@ -75,20 +70,9 @@ ob_start();
             <span class="nav-link-text">Produtos</span>
           </a>
         </li>
+
         <li class="nav-item">
-          <a href="../pages/relatorios.php" class="nav-link">
-            <ion-icon name="document-text-outline"></ion-icon>
-            <span class="nav-link-text">Relatórios</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="../pages/configuracao.php" class="nav-link">
-            <ion-icon name="settings-outline"></ion-icon>
-            <span class="nav-link-text">Configurações</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="../pages/logout.php" class="nav-link">
+          <a href="../methods/logout.php" class="nav-link">
             <ion-icon name="log-out-outline"></ion-icon>
             <span class="nav-link-text">Sair</span>
           </a>
@@ -98,146 +82,248 @@ ob_start();
   </div>
 
 
+
   <section>
     <h1>Caixa</h1>
-    <div class="row">
-      <div class="col-md-6">
-        <h2>Realização de Pedidos</h2>
-        <form action="../methods/busca_cliente.php" method="GET">
-          <div class="form-group">
-            <label for="busca">Buscar Cliente:</label>
-            <input type="text" class="form-control" id="busca" name="busca" placeholder="Digite o CPF ou nome do cliente">
-          </div>
-          <button type="submit" class="btn btn-primary">Buscar</button>
-        </form>
-
-
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary" value="clientes">Clientes</button>
-          <button type="button" class="btn btn-primary" value="salgados">Salgados</button>
-          <button type="button" class="btn btn-primary" value="lanches">Lanches</button>
-          <button type="button" class="btn btn-primary" value="bebidas">Bebidas</button>
-          <button type="button" class="btn btn-primary" value="sobremesas">Sobremesas</button>
-        </div>
-
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Quantidade</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            include '../methods/teste.php';
-            $tipo = isset($_GET['tipo']) ? $_GET['tipo'] : '';
-            exibirProdutos($tipo);
-            ?>
-
-          </tbody>
-        </table>
-
-        <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="forma-pagamento">Forma de Pagamento</label>
-              <select class="form-control" id="forma-pagamento">
-                <option>Selecione uma forma de Pagamento</option>
-                <option>Pix</option>
-                <option>Dinheiro</option>
-                <option>Cartão de Crédito</option>
-                <option>Cartão de Débito</option>
-                <option>Vale-Refeição</option>
-              </select>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Lado A -->
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#cliente">Cliente</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade" id="cliente">
+              <!-- Tabela para a categoria "Cliente" -->
+              <h2>Cliente</h2>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require_once '../methods/busca_cliente.php';
+                  ?>
+                  <!-- Adicionar mais linhas conforme necessário -->
+                </tbody>
+              </table>
             </div>
-            <div class="form-group col-md-6">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="tipo-entrega">Tipo de Entrega</label>
-                  <select class="form-control" id="tipo-entrega">
-                    <option value="retirada">Retirada</option>
-                    <option value="entrega">Entrega</option>
-                  </select>
-                </div>
+          </div>
+          <ul class=" nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#salgados">Salgados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#lanches">Lanches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#bebidas">Bebidas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#sobremesas">Sobremesas</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade" id="salgados">
+              <!-- Tabela de salgados -->
+              <h2>Salgados</h2>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Estoque</th>
+                    <th>Preço Uni.</th>
+                    <th>Quantidade</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require_once '../methods/busca_produto.php';
+                  listarProdutos('Salgados')
+                  ?>
 
-                <div class="form-group col-md-6">
-                  <label for="taxa-entrega">Taxa de Entrega</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="taxa-entrega" value="R$ 10.00" disabled>
-                    <div class="input-group-append">
-                      <span class="input-group-text"></span>
-                    </div>
-                  </div>
+                  <!-- Adicionar mais linhas conforme necessário -->
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="lanches">
+              <!-- Tabela de lanches -->
+              <h2>Lanches</h2>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Estoque</th>
+                    <th>Preço Uni.</th>
+                    <th>Quantidade</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require_once '../methods/busca_produto.php';
+                  listarProdutos('Lanches')
+                  ?>
+                  <!-- Adicionar mais linhas conforme necessário -->
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="bebidas">
+              <!-- Tabela de bebidas -->
+              <h2>Bebidas</h2>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Estoque</th>
+                    <th>Preço Uni.</th>
+                    <th>Quantidade</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require_once '../methods/busca_produto.php';
+                  listarProdutos('Bebidas')
+                  ?>
+                  <!-- Adicionar mais linhas conforme necessário -->
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="sobremesas">
+              <!-- Tabela de sobremesas -->
+              <h2>Sobremesas</h2>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Estoque</th>
+                    <th>Preço Uni.</th>
+                    <th>Quantidade</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  require_once '../methods/busca_produto.php';
+                  listarProdutos('Sobremesas')
+                  ?>
+                  <!-- Adicionar mais linhas conforme necessário -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="forma-pagamento">Forma de Pagamento:</label>
+                <select class="form-control" id="forma-pagamento">
+                  <option value="pix">Selecionar Opção</option>
+                  <option value="pix">Pix</option>
+                  <option value="dinheiro">Dinheiro</option>
+                  <option value="credito">Crédito</option>
+                  <option value="debito">Débito</option>
+                  <option value="vale-refeicao">Vale Refeição</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="tipo-entrega">Tipo de Entrega:</label>
+                <select class="form-control" id="tipo-entrega">
+                  <option value="pix">Selecionar Opção</option>
+                  <option value="pix">Retirada</option>
+                  <option value="dinheiro">Entrega</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="taxa">Taxa:</label>
+                <div class="input-group">
+                  <span class="input-group-addon">R$</span>
+                  <input type="text" class="form-control" id="taxa" value="10.00">
                 </div>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="observacao">Observação:</label>
+                <textarea class="form-control" id="observacao" rows="3"></textarea>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="btn btn-danger btn-block" onclick="limparCampos(); limparTabelaProdutos()">Cancelar</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-success btn-block" onclick="criarPedido()">Criar Pedido</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!-- Lado B -->
+          <h2>Pedido Realizado por: </h2>
+          <div id="clienteInfo">
+            <div class="row">
+              <div class="col-md-6">
+                <p>Nome: <span id="clienteNome"></span></p>
+                <p>CPF: <span id="clienteCPF"></span></p>
+              </div>
+              <div class="col-md-6">
+                <p>Endereço: <span id="clienteEndereco"></span></p>
+                <p>CEP: <span id="clienteCEP"></span></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p>Tel1: <span id="clienteTelefone"></span></p>
+              </div>
+              <div class="col-md-6">
+                <p>Num: <span id="clienteNumero"></span></p>
               </div>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <h2>Comanda</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Quantidade</th>
-              <th>Valor</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            include '../methods/list_itens_pedidos.php';
-            ?>
-          </tbody>
-        </table>
-        <div class="total-section">
-          <h3>Total: <span id="valor-total">R$ 0.00</span></h3>
-        </div>
-        <div class="button-section">
-          <button class="btn btn-secondary">Cancelar</button>
-          <button class="btn btn-success">Finalizar Pedido</button>
+
+
+          <h2>Comanda</h2>
+          <div class="table-responsive">
+            <table class="table" id="tabelaProdutos">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Item</th>
+                  <th>Quantidade</th>
+                  <th>Preço Unitário</th>
+                  <th>Preço Total</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- Código HTML do modal -->
-  <div id="resultadoModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Resultados da Busca</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Endereço</th>
-                <th>Ação</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              // Código PHP para exibir os resultados
-              include '../methods/busca_cliente.php';
-              exibirClientes($termo);
-              ?>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 
@@ -270,49 +356,8 @@ ob_start();
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
-  <!-- JavaScript do Bootstrap -->
-  <script type="text/javascript">
-    $('#deleteModal').on('show.bs.modal', function(event) {
-      var button = $(event.relatedTarget);
-      var recipientId = button.data('whateverid');
-
-      var modal = $(this);
-
-      modal.find('#idCliente').val(recipientId);
-    });
-
-    $('#exampleModal').on('show.bs.modal', function(event) {
-      var button = $(event.relatedTarget);
-      var recipientId = button.data('whateverid');
-      var recipientNome = button.data('whatevernome');
-      var recipientCpf = button.data('whatevercpf');
-      var recipientEndereco = button.data('whateverende');
-      var recipientNumero = button.data('whatevernum');
-      var recipientCep = button.data('whatevercep');
-      var recipientTel1 = button.data('whatevertel1');
-      var recipientTel2 = button.data('whatevertel2');
-      var recipientCadastro = button.data('whatevercadastro');
-
-      var modal = $(this);
-
-      modal.find('#idCliente').val(recipientId);
-      modal.find('#id_Cliente').text('Atualização do Cliente: ' + recipientId);
-      modal.find('#idCliente').val(recipientId);
-      modal.find('#nomeCliente').val(recipientNome);
-      modal.find('#cpfCliente').val(recipientCpf);
-      modal.find('#endeCliente').val(recipientEndereco);
-      modal.find('#numCliente').val(recipientNumero);
-      modal.find('#cepCliente').val(recipientCep);
-      modal.find('#tel1Cliente').val(recipientTel1);
-      modal.find('#tel2Cliente').val(recipientTel2);
-      modal.find('#cadastroCliente').val(recipientCadastro);
-    });
-  </script>
-
-
 
   <!-- Script para Formata tela de Cadastro -->
-
   <script src="../assets/js/script_caixa.js"></script>
 
   <script src="../assets/bootstrap/js/bootstrap.min.js"></script>

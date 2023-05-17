@@ -43,8 +43,7 @@
         ?>
       </div>
 
-      <a href="#">Esqueceu sua senha?</a> ou
-      <a href="#">Crie uma conta</a>
+
     </div>
   </div>
 </body>
