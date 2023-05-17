@@ -6,10 +6,10 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
 // Dados da conexão
-$host = "localhost";
+$host = "containers-us-west-104.railway.app";
 $user = "root";
-$password = "";
-$database = "profitbase";
+$password = "containers-us-west-104.railway.app";
+$database = "railway";
 
 // Cria a conexão com o banco de dados
 $conn = new mysqli($host, $user, $password, $database);
