@@ -8,7 +8,7 @@ if (session_status() == PHP_SESSION_NONE) {
 // Dados da conexão
 $host = "containers-us-west-104.railway.app";
 $user = "root";
-$password = "containers-us-west-104.railway.app";
+$password = "zA9gw5Kb7AWYKMMXRSlY";
 $database = "railway";
 
 // Cria a conexão com o banco de dados
